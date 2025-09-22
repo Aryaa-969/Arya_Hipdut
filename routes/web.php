@@ -28,3 +28,5 @@ Route::get('/mahasiswa/{param1?}', [MahasiswaController::class, 'show']) -> name
 Route::get('/about', function () {
     return view('halaman-about');
 });
+
+
