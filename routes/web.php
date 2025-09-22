@@ -3,6 +3,9 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PegawaiController;
+
+Route::get('/data', [PegawaiController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
