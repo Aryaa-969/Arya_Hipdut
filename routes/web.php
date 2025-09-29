@@ -35,3 +35,5 @@ Route::get('/about', function () {
 
 Route::post('question/store', [QuestionController::class, 'store'])
         ->name('question.store');
+
+
