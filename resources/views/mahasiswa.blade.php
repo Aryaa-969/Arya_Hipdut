@@ -7,19 +7,19 @@
 </head>
 <body>
     <h1>Data Mahasiswa</h1>
-    <p><strong>Nama:</strong> {{ $data['name'] }}</p>
-    <p><strong>Umur:</strong> {{ $data['my_age'] }} tahun</p>
-    <p><strong>Hobi:</strong>
+    <p>Nama: {{ $data['name'] }}</p>
+    <p>Umur: {{ $data['my_age'] }} tahun</p>
+    <p>Hobi:
         <ul>
             @foreach ($data['hobbies'] as $hobi)
                 <li>{{ $hobi }}</li>
             @endforeach
         </ul>
     </p>
-    <p><strong>Tanggal Harus Wisuda:</strong> {{ $data['tgl_harus_wisuda'] }}</p>
-    <p><strong>Jarak hari menuju wisuda:</strong> {{ $data['time_to_study_left'] }} hari</p>
-    <p><strong>Semester saat ini:</strong> {{ $data['current_semester'] }}</p>
-    <p><strong>Cita-cita:</strong> {{ $data['future_goal'] }}</p>
-    <p><strong>Pesan:</strong> {{ $data['message'] }}</p>
+    <p>Tanggal Harus Wisuda: {{ $data['tgl_harus_wisuda'] }}</p>
+    <p>Jarak hari menuju wisuda: {{ $data['time_to_study_left'] }} hari</p>
+    <p>Semester saat ini: {{ $data['current_semester'] }}</p>
+    <p>Cita-cita:{{ $data['future_goal'] }}</p>
+    <p>Pesan: {{ $data['message'] }}</p>
 </body>
 </html>
