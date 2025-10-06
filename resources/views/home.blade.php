@@ -8,9 +8,11 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/custom-style.css') }}">
+
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: "font-custom";
         }
 
         .navbar-brand {
@@ -82,7 +84,7 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container">
+        <div class="container font-custom">
             <h1> {{ $username }} </h1>
             <p> {{ $last_login }} </p>
         </div>
@@ -156,13 +158,18 @@
                         </p>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-6">
 
                 <div class="card">
                     <div class="card-body">
+                        <img src="{{ asset('assets/images/hipdut.png') }}" alt="Logo">
+                    </div>
+                </div>
 
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
                         <h5 class="card-title">Form Pertanyaan</h5>
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -173,6 +180,7 @@
                                 </ul>
                             </div>
                         @endif
+
                         <form action="{{ route('question.store') }}" method="POST">
                             @csrf
                             <form action="" method="POST">
