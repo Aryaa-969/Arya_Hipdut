@@ -483,102 +483,68 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah Pelanggan</li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah Pelanggan</h1>
-                    <p class="mb-0">Form untuk menambahkan data pelangan baru</p>
+                    <h1 class="h4">Data Pelanggan</h1>
+                    <p class="mb-0">Data-Data Pelanggan</p>
                 </div>
                 <div>
                     <a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/forms/"
-                        class="btn btn-primary"><i class="far fa-question-circle me-1"></i> Kembali </a>
+                        class="btn btn-success text-white"><i class="far fa-question-circle me-1"></i> Tambah
+                        Pelanggan </a>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12 mb-4">
-                <div class="card border-0 shadow components-section">
+                <div class="card border-0 shadow mb-4">
                     <div class="card-body">
-                        <form action="{{ route('pelanggan.store') }}" method="POST">
-                            @csrf
-                            <div class="row mb-4">
-                                <div class="col-lg-4 col-sm-6 mb-3">
-                                    <label for="firstName">First name</label>
-                                    <input type="text" class="form-control" id="firstName" name="first_name"
-                                        value="{{ old('first_name') }}" required>
-                                    @error('first_name')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-4 col-sm-6 mb-3">
-                                    <label for="birthday">Birthday</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text">
-                                            <svg class="icon icon-xs text-gray-600" fill="currentColor"
-                                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd"
-                                                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                                                    clip-rule="evenodd"></path>
-                                            </svg>
-                                        </span>
-                                        <input data-datepicker class="form-control" id="birthday" name="birthday"
-                                            type="text" placeholder="dd/mm/yyyy" value="{{ old('birthday') }}"
-                                            required>
-                                    </div>
-                                    @error('birthday')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-4 col-sm-6 mb-3">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email"
-                                        value="{{ old('email') }}" required>
-                                    @error('email')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
+                        <div class="table-responsive">
+                            <table class="table table-centered table-nowrap mb-0 rounded" id="table-pelanggan">
+                                <thead class="thead-light">
+                                    <tr>
 
-                            <div class="row mb-4">
-                                <div class="col-lg-4 col-sm-6 mb-3">
-                                    <label for="lastName">Last name</label>
-                                    <input type="text" class="form-control" id="lastName" name="last_name"
-                                        value="{{ old('last_name') }}" required>
-                                    @error('last_name')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-4 col-sm-6 mb-3">
-                                    <label for="gender">Gender</label>
-                                    <select class="form-control" id="gender" name="gender" required>
-                                        <option value="">-- Pilih --</option>
-                                        <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male
-                                        </option>
-                                        <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>
-                                            Female</option>
-                                        <option value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>Other
-                                        </option>
-                                    </select>
-                                    @error('gender')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-4 col-sm-6 mb-3">
-                                    <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone"
-                                        value="{{ old('phone') }}" required>
-                                    @error('phone')
-                                        <small class="text-danger">{{ $message }}</small>
-                                    @enderror
-                                </div>
-                            </div>
+                                        <th class="border-0">First Name</th>
+                                        <th class="border-0">Last Name</th>
+                                        <th class="border-0">Birthday</th>
+                                        <th class="border-0">Gender</th>
+                                        <th class="border-0">Email</th>
+                                        <th class="border-0">Phone</th>
+                                        <th class="border-0">#</th>
 
-                            <button type="submit" class="btn btn-dark">Simpan</button>
-                            <button type="reset" class="btn btn-warning ms-2">Batal</button>
-                        </form>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tbody>
+                                    @foreach ($dataPelanggan as $item)
+                                        <tr>
+                                            <td>{{ $item->first_name }}</td>
+                                            <td>{{ $item->last_name }}</td>
+                                            <td>{{ $item->birthday }}</td>
+                                            <td>{{ $item->gender }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->phone }}</td>
+                                            <td><a href="" class="btn btn-info btn-sm">
+                                                    <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
+                                                        stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10">
+                                                        </path>
+                                                    </svg>
+                                                    Edit
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

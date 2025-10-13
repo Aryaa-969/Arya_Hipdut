@@ -483,13 +483,13 @@
                         </a>
                     </li>
                     <li class="breadcrumb-item"><a href="#">Pelanggan</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah Pelanggan</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Pelanggan</li>
                 </ol>
             </nav>
             <div class="d-flex justify-content-between w-100 flex-wrap">
                 <div class="mb-3 mb-lg-0">
-                    <h1 class="h4">Tambah Pelanggan</h1>
-                    <p class="mb-0">Form untuk menambahkan data pelangan baru</p>
+                    <h1 class="h4">Edit</h1>
+                    <p class="mb-0">Ubah data pelanggan</p>
                 </div>
                 <div>
                     <a href="https://themesberg.com/docs/volt-bootstrap-5-dashboard/components/forms/"
@@ -502,13 +502,13 @@
             <div class="col-12 mb-4">
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
-                        <form action="{{ route('pelanggan.store') }}" method="POST">
+                        <form action="{{route('pelanggan.update', $dataPelanggan->pelanggan_id)}}" method="POST">
                             @csrf
                             <div class="row mb-4">
                                 <div class="col-lg-4 col-sm-6 mb-3">
                                     <label for="firstName">First name</label>
                                     <input type="text" class="form-control" id="firstName" name="first_name"
-                                        value="{{ old('first_name') }}" required>
+                                        value="{{ $dataPelanggan->first_name }}" required>
                                     @error('first_name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -525,7 +525,7 @@
                                             </svg>
                                         </span>
                                         <input data-datepicker class="form-control" id="birthday" name="birthday"
-                                            type="text" placeholder="dd/mm/yyyy" value="{{ old('birthday') }}"
+                                            type="text" placeholder="dd/mm/yyyy" value="{{ $dataPelanggan->birthday }}"
                                             required>
                                     </div>
                                     @error('birthday')
@@ -535,7 +535,7 @@
                                 <div class="col-lg-4 col-sm-6 mb-3">
                                     <label for="email">Email</label>
                                     <input type="email" class="form-control" id="email" name="email"
-                                        value="{{ old('email') }}" required>
+                                        value="{{ $dataPelanggan->email }}" required>
                                     @error('email')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -546,7 +546,7 @@
                                 <div class="col-lg-4 col-sm-6 mb-3">
                                     <label for="lastName">Last name</label>
                                     <input type="text" class="form-control" id="lastName" name="last_name"
-                                        value="{{ old('last_name') }}" required>
+                                        value="{{ $dataPelanggan->last_name }}" required>
                                     @error('last_name')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
@@ -554,7 +554,7 @@
                                 <div class="col-lg-4 col-sm-6 mb-3">
                                     <label for="gender">Gender</label>
                                     <select class="form-control" id="gender" name="gender" required>
-                                        <option value="">-- Pilih --</option>
+                                        <option value="{{ $dataPelanggan->gender }}">-- Pilih --</option>
                                         <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male
                                         </option>
                                         <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>
@@ -569,14 +569,14 @@
                                 <div class="col-lg-4 col-sm-6 mb-3">
                                     <label for="phone">Phone</label>
                                     <input type="text" class="form-control" id="phone" name="phone"
-                                        value="{{ old('phone') }}" required>
+                                        value="{{ $dataPelanggan->phone }}" required>
                                     @error('phone')
                                         <small class="text-danger">{{ $message }}</small>
                                     @enderror
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-dark">Simpan</button>
+                            <button type="submit" class="btn btn-info">Simpan Perubahan</button>
                             <button type="reset" class="btn btn-warning ms-2">Batal</button>
                         </form>
                     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
 class PelangganController extends Controller
@@ -11,7 +12,8 @@ class PelangganController extends Controller
      */
     public function index()
     {
-        //
+        $data['dataPelanggan'] = Pelanggan::all();
+        return view('Admin.pelanggan.index', $data);
     }
 
     /**
@@ -27,7 +29,17 @@ class PelangganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $data['first_name'] = $request->first_name;
+        $data['last_name'] = $request->last_name;
+        $data['birthday'] = date('Y-m-d', strtotime($request->birthday));
+        $data['gender'] = $request->gender;
+        $data['email'] = $request->email;
+        $data['phone'] = $request->phone;
+
+        Pelanggan::create($data);
+
+        return redirect()->route('pelanggan.index')->with('success', 'Penambahan Data Berhasil!');
     }
 
     /**
@@ -43,7 +55,8 @@ class PelangganController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['dataPelanggan'] = Pelanggan::findOrFail($id);
+        return view('Admin.pelanggan.edit', $data);
     }
 
     /**
