@@ -19,7 +19,7 @@ class PelangganController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.pelanggan.create');
     }
 
     /**
