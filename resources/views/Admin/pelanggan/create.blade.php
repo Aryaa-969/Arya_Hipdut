@@ -72,7 +72,7 @@
 
         <nav class="navbar navbar-dark navbar-theme-primary px-4 col-12 d-lg-none">
     <a class="navbar-brand me-lg-5" href="{{ asset('assets-admin/index.html')}}">
-        <img class="navbar-brand-dark" src="{{ asset ('assets-admin/assets/img/brand/light.svg" alt="Volt logo')}}" /> <img class="navbar-brand-light" src="{{ asset('assets-admin/assets/img/brand/dark.svg')}}" alt="Volt logo" />
+        <img class="navbar-brand-dark" src="{{ asset ('assets-admin/assets/img/brand/light.svg')}}" alt="Volt logo" /> <img class="navbar-brand-light" src="{{ asset('assets-admin/assets/img/brand/dark.svg')}}" alt="Volt logo" />
     </a>
     <div class="d-flex align-items-center">
         <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,12 +87,12 @@
 				class="user-card d-flex d-md-none align-items-center justify-content-between justify-content-md-center pb-4">
 				<div class="d-flex align-items-center">
 					<div class="avatar-lg me-4">
-						<img src="assets-admin/assets/img/team/profile-picture-3.jpg"
+						<img src="{{ asset('assets-admin/assets/img/team/profile-picture-3.jpg')}}"
 							class="card-img-top rounded-circle border-white" alt="Bonnie Green">
 					</div>
 					<div class="d-block">
 						<h2 class="h5 mb-3">Hi, Jane</h2>
-						<a href="assets-admin/pages/examples/sign-in.html"
+						<a href="{{ asset('assets-admin/pages/examples/sign-in.html')}}"
 							class="btn btn-secondary btn-sm d-inline-flex align-items-center">
 							<svg class="icon icon-xxs me-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
 								xmlns="http://www.w3.org/2000/svg">
@@ -130,7 +130,7 @@
 
 			<ul class="nav flex-column pt-3 pt-md-0">
 				<li class="nav-item">
-					<a href="assets-admin/index.html" class="nav-link d-flex align-items-center">
+					<a href="{{ asset('assets-admin/index.html')}}" class="nav-link d-flex align-items-center">
 						<span class="sidebar-icon">
 							<img src="{{ asset('assets-admin/assets/img/brand/light.svg')}}" height="20" width="20" alt="Volt Logo">
 						</span>
@@ -138,7 +138,7 @@
 					</a>
 				</li>
 				<li class="nav-item  active ">
-					<a href="assets-admin/pages/dashboard/dashboard.html" class="nav-link">
+					<a href="{{ asset('assets-admin/pages/dashboard/dashboard.html')}}" class="nav-link">
 						<span class="sidebar-icon">
 							<svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
 								xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +176,7 @@
 					<div class="multi-level collapse " role="list" id="submenu-app" aria-expanded="false">
 						<ul class="flex-column nav">
 							<li class="nav-item ">
-								<a class="nav-link" href="assets-admin/pages/tables/bootstrap-tables.html">
+								<a class="nav-link" href="{{ asset('assets-admin/pages/tables/bootstrap-tables.html')}}">
 									<span class="sidebar-text">Bootstrap Tables</span>
 								</a>
 							</li>
@@ -202,7 +202,7 @@
 				</li>
 
 				<li class="nav-item">
-					<a href="assets-admin/pages/upgrade-to-pro.html"
+					<a href="{{ asset('assets-admin/pages/upgrade-to-pro.html')}}"
 						class="btn btn-secondary d-flex align-items-center justify-content-center btn-upgrade-pro">
 						<span class="sidebar-icon d-inline-flex align-items-center justify-content-center">
 							<svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20"
@@ -252,7 +252,7 @@
                 <div class="row align-items-center">
                     <div class="col-auto">
                       <!-- Avatar -->
-                      <img alt="Image placeholder" src="assets-admin/assets/img/team/profile-picture-1.jpg" class="avatar-md rounded">
+                      <img alt="Image placeholder" src="{{ asset('assets-admin/assets/img/team/profile-picture-1.jpg')}}" class="avatar-md rounded">
                     </div>
                     <div class="col ps-0 ms-2">
                       <div class="d-flex justify-content-between align-items-center">
@@ -271,7 +271,7 @@
                 <div class="row align-items-center">
                     <div class="col-auto">
                       <!-- Avatar -->
-                      <img alt="Image placeholder" src="assets-admin/assets/img/team/profile-picture-2.jpg" class="avatar-md rounded">
+                      <img alt="Image placeholder" src="{{ asset('assets-admin/assets/img/team/profile-picture-2.jpg')}}" class="avatar-md rounded">
                     </div>
                     <div class="col ps-0 ms-2">
                       <div class="d-flex justify-content-between align-items-center">
@@ -290,7 +290,7 @@
                 <div class="row align-items-center">
                     <div class="col-auto">
                       <!-- Avatar -->
-                      <img alt="Image placeholder" src="assets-admin/assets/img/team/profile-picture-3.jpg" class="avatar-md rounded">
+                      <img alt="Image placeholder" src="{{ asset('assets-admin/assets/img/team/profile-picture-3.jpg')}}" class="avatar-md rounded">
                     </div>
                     <div class="col ps-0 m-2">
                       <div class="d-flex justify-content-between align-items-center">
@@ -309,7 +309,7 @@
                 <div class="row align-items-center">
                     <div class="col-auto">
                       <!-- Avatar -->
-                      <img alt="Image placeholder" src="assets-admin/assets/img/team/profile-picture-4.jpg" class="avatar-md rounded">
+                      <img alt="Image placeholder" src="{{ asset('assets-admin/assets/img/team/profile-picture-4.jpg')}}" class="avatar-md rounded">
                     </div>
                     <div class="col ps-0 ms-2">
                       <div class="d-flex justify-content-between align-items-center">
@@ -617,10 +617,10 @@
         <div class="d-flex justify-content-center">
             <a class="me-3" href="https://themesberg.com/product/admin-dashboard/volt-bootstrap-5-dashboard"
                 target="_blank">
-                <img src="assets-admin/assets/img/technologies/bootstrap-5-logo.svg" class="image image-xs">
+                <img src="{{ asset('assets-admin/assets/img/technologies/bootstrap-5-logo.svg')}}" class="image image-xs">
             </a>
             <a href="https://demo.themesberg.com/volt-react-dashboard/#/" target="_blank">
-                <img src="assets-admin/assets/img/technologies/react-logo.svg" class="image image-xs">
+                <img src="{{ asset('assets-admin/assets/img/technologies/react-logo.svg')}}" class="image image-xs">
             </a>
         </div>
     </div>
@@ -662,45 +662,45 @@
         </main>
 
     <!-- Core -->
-<script src="assets-admin/vendor/@popperjs/core/dist/umd/popper.min.js"></script>
-<script src="assets-admin/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/@popperjs/core/dist/umd/popper.min.js')}}"></script>
+<script src="assets-admin/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 
 <!-- Vendor JS -->
-<script src="assets-admin/vendor/onscreen/dist/on-screen.umd.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/onscreen/dist/on-screen.umd.min.js')}}"></script>
 
 <!-- Slider -->
-<script src="assets-admin/vendor/nouislider/distribute/nouislider.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/nouislider/distribute/nouislider.min.js')}}"></script>
 
 <!-- Smooth scroll -->
-<script src="assets-admin/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js')}}"></script>
 
 <!-- Charts -->
-<script src="assets-admin/vendor/chartist/dist/chartist.min.js"></script>
-<script src="assets-admin/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/chartist/dist/chartist.min.js')}}"></script>
+<script src="{{ asset('assets-admin/vendor/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js')}}"></script>
 
 <!-- Datepicker -->
-<script src="assets-admin/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/vanillajs-datepicker/dist/js/datepicker.min.js')}}"></script>
 
 <!-- Sweet Alerts 2 -->
-<script src="assets-admin/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/sweetalert2/dist/sweetalert2.all.min.js')}}"></script>
 
 <!-- Moment JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js')}}"></script>
 
 <!-- Vanilla JS Datepicker -->
-<script src="assets-admin/vendor/vanillajs-datepicker/dist/js/datepicker.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/vanillajs-datepicker/dist/js/datepicker.min.js')}}"></script>
 
 <!-- Notyf -->
-<script src="assets-admin/vendor/notyf/notyf.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/notyf/notyf.min.js')}}"></script>
 
 <!-- Simplebar -->
-<script src="assets-admin/vendor/simplebar/dist/simplebar.min.js"></script>
+<script src="{{ asset('assets-admin/vendor/simplebar/dist/simplebar.min.js')}}"></script>
 
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 <!-- Volt JS -->
-<script src="assets-admin/assets/js/volt.js"></script>
+<script src="{{ asset('assets-admin/assets/js/volt.js')}}"></script>
 
 
 </body>
