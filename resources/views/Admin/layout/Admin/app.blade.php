@@ -88,7 +88,6 @@
         <!--Start Footer -->
         @include('Admin.layout.Admin.footer')
         <!--End Footer -->
-
     <!-- End -->
 
     <!-- Start JS -->
