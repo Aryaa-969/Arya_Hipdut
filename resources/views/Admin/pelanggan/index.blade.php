@@ -19,8 +19,8 @@
                                             clip-rule="evenodd"></path>
                                     </svg>
                                 </span>
-                                <input type="text" class="form-control" id="topbarInputIconLeft"
-                                    placeholder="Search" aria-label="Search" aria-describedby="topbar-addon">
+                                <input type="text" class="form-control" id="topbarInputIconLeft" placeholder="Search"
+                                    aria-label="Search" aria-describedby="topbar-addon">
                             </div>
                         </form>
                         <!-- End Search form -->
@@ -29,8 +29,8 @@
                     <ul class="navbar-nav align-items-center">
                         <li class="nav-item dropdown">
                             <a class="nav-link text-dark notification-bell unread dropdown-toggle"
-                                data-unread-notifications="true" href="#" role="button"
-                                data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                                data-unread-notifications="true" href="#" role="button" data-bs-toggle="dropdown"
+                                data-bs-display="static" aria-expanded="false">
                                 <svg class="icon icon-sm text-gray-900" fill="currentColor" viewBox="0 0 20 20"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -178,8 +178,8 @@
                             </a>
                             <div class="dropdown-menu dashboard-dropdown dropdown-menu-end mt-2 py-1">
                                 <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
                                             clip-rule="evenodd"></path>
@@ -187,8 +187,8 @@
                                     My Profile
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
                                             clip-rule="evenodd"></path>
@@ -196,8 +196,8 @@
                                     Settings
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z"
                                             clip-rule="evenodd"></path>
@@ -205,8 +205,8 @@
                                     Messages
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor"
-                                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="dropdown-icon text-gray-400 me-2" fill="currentColor" viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd"
                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-2 0c0 .993-.241 1.929-.668 2.754l-1.524-1.525a3.997 3.997 0 00.078-2.183l1.562-1.562C15.802 8.249 16 9.1 16 10zm-5.165 3.913l1.58 1.58A5.98 5.98 0 0110 16a5.976 5.976 0 01-2.516-.552l1.562-1.562a4.006 4.006 0 001.789.027zm-4.677-2.796a4.002 4.002 0 01-.041-2.08l-.08.08-1.53-1.533A5.98 5.98 0 004 10c0 .954.223 1.856.619 2.657l1.54-1.54zm1.088-6.45A5.974 5.974 0 0110 4c.954 0 1.856.223 2.657.619l-1.54 1.54a4.002 4.002 0 00-2.346.033L7.246 4.668zM12 10a2 2 0 11-4 0 2 2 0 014 0z"
                                             clip-rule="evenodd"></path>
@@ -265,21 +265,51 @@
                 <div class="card border-0 shadow mb-4">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-centered table-nowrap mb-0 rounded" id="table-pelanggan">
+                            <form method="GET" action="{{ route('pelanggan.index') }}" class="mb-3">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <select name="gender" class="form-select" onchange="this.form.submit()">
+                                            <option value="">All</option>
+                                            <option value="Male" {{ request('gender') == 'Male' ? 'selected' : '' }}>Male
+                                            </option>
+                                            <option value="Female" {{ request('gender') == 'Female' ? 'selected' : '' }}>
+                                                Female</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="input-group">
+                                            <input type="text" name="search" class="form-control"
+                                                value="{{ request('search') }}" placeholder="Search">
+                                            <button type="submit" class="input-group-text">
+                                                <svg class="icon icon-xxs" fill="currentColor" viewBox="0 0 20 20"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </button>
+                                            @if (request('search'))
+                                                <a href="{{ request()->fullUrlWithQuery(['search' => null]) }}"
+                                                    class="btn btn-outline-secondary ml-3" id="clear-search"> Clear</a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <table class="table table-centered table-nowrap mb-0 rounded">
                                 <thead class="thead-light">
                                     <tr>
-
-                                        <th class="border-0">First Name</th>
-                                        <th class="border-0">Last Name</th>
-                                        <th class="border-0">Birthday</th>
-                                        <th class="border-0">Gender</th>
-                                        <th class="border-0">Email</th>
-                                        <th class="border-0">Phone</th>
-                                        <th class="border-0">#</th>
-
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Birthday</th>
+                                        <th>Gender</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>#</th>
                                     </tr>
                                 </thead>
-                                <tbody>
                                 <tbody>
                                     @foreach ($dataPelanggan as $item)
                                         <tr>
@@ -289,22 +319,16 @@
                                             <td>{{ $item->gender }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->phone }}</td>
-                                            <td><a href="" class="btn btn-info btn-sm">
-                                                    <svg class="icon icon-xs me-2" data-slot="icon" fill="none"
-                                                        stroke-width="1.5" stroke="currentColor" viewBox="0 0 24 24"
-                                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                            d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10">
-                                                        </path>
-                                                    </svg>
-                                                    Edit
-                                                </a>
-                                            </td>
+                                            <td><a href="" class="btn btn-info btn-sm">Edit</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
-                                </tbody>
                             </table>
+
+                            <div class="mt-3">
+                                {{ $dataPelanggan->appends(request()->query())->links('pagination::bootstrap-5') }}
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -327,5 +351,3 @@
     </main>
     <!-- End -->
 @endsection
-
-
