@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -11,10 +10,21 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::orderBy('id','desc')->paginate(10);
-        return view('Admin.User.index', compact('users'));
+        $filterableColumns = ['email_verified_at'];
+
+        // Kolom yang boleh dicari
+        $searchableColumns = ['name', 'email'];
+
+        // Ambil data dengan filter + search
+        $pageData['dataUser'] = User::filter($request, $filterableColumns)
+            ->search($request, $searchableColumns)
+            ->orderBy('id', 'desc')
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('Admin.User.index', $pageData);
     }
 
     /**
@@ -71,7 +81,7 @@ class UserController extends Controller
         // P2: password wajib diisi saat edit
         $data = $request->validate([
             'name'     => 'required|string|max:255',
-            'email'    => 'required|email|unique:users,email,'.$user->id,
+            'email'    => 'required|email|unique:users,email,' . $user->id,
             'password' => 'required|string|min:8|confirmed',
         ]);
 
