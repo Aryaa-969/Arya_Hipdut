@@ -319,7 +319,9 @@
                                             <td>{{ $item->gender }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->phone }}</td>
-                                            <td><a href="" class="btn btn-info btn-sm">Edit</a></td>
+                                            <td><a href="{{ route('pelanggan.show', $item) }}">
+                                                    Edit
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

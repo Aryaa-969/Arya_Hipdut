@@ -484,7 +484,8 @@
             <div class="col-12 mb-4">
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
-                        <form action="{{ route('users.update', $user->id) }}" method="POST">
+                        <form action="{{ route('users.update', $user->id) }}" method="POST"
+                            enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -509,6 +510,13 @@
                                 <label class="form-label">Konfirmasi Password</label>
                                 <input type="password" name="password_confirmation" class="form-control" required>
                             </div>
+
+                            <div class="mb-3">
+                                <label for="">Foto Profile</label>
+                                <input type="file" name="profile_picture" class="form-control">
+                            </div>
+
+
 
                             <button class="btn btn-dark" type="submit">Update</button>
                             <a href="{{ route('users.index') }}" class="btn btn-secondary">Batal</a>

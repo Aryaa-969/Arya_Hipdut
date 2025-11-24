@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\MultipleUploads;
 use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
@@ -48,9 +49,15 @@ class PelangganController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $pelanggan = Pelanggan::findOrFail($id);
+
+        $files = MultipleUploads::where('ref_table', 'pelanggan')
+            ->where('ref_id', $id)
+            ->get();
+
+        return view('Admin.pelanggan.detail', compact('pelanggan', 'files'));
     }
 
     /**
@@ -77,4 +84,31 @@ class PelangganController extends Controller
     {
         //
     }
+
+    public function uploadFiles(Request $request, $id)
+    {
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $path = $file->store('uploads/pelanggan', 'public');
+
+                MultipleUploads::create([
+                    'ref_table' => 'pelanggan',
+                    'ref_id'    => $id,
+                    'file_path' => $path,
+                ]);
+            }
+        }
+
+        return back()->with('success', 'File berhasil di-upload');
+    }
+
+    public function deleteFile($id)
+    {
+        $file = MultipleUploads::findOrFail($id);
+        Storage::disk('public')->delete($file->file_path);
+        $file->delete();
+
+        return back()->with('success', 'File berhasil dihapus.');
+    }
+
 }
