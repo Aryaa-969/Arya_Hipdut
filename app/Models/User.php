@@ -1,32 +1,29 @@
 <?php
+
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
+     * Field yang boleh diisi (fillable)
      */
     protected $fillable = [
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
+     * Field yang harus disembunyikan ketika response JSON
      */
     protected $hidden = [
         'password',
@@ -34,43 +31,23 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Konversi otomatis tipe data
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password'          => 'hashed',
-        ];
-    }
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 
     public function scopeFilter(Builder $query, $request, array $filterableColumns): Builder
     {
         foreach ($filterableColumns as $column) {
             if ($request->filled($column)) {
-                $query->where($column, 'LIKE', '%' . $request->input($column) . '%');
+                $query->where($column, $request->input($column));
             }
         }
-
-        // Filter email_verified_at (yes/no)
-        if ($request->filled('email_verified_at')) {
-            if ($request->email_verified_at === 'yes') {
-                $query->whereNotNull('email_verified_at');
-            }
-            if ($request->email_verified_at === 'no') {
-                $query->whereNull('email_verified_at');
-            }
-        }
-
         return $query;
     }
 
-    /**
-     * Search global (name, email)
-     */
-    public function scopeSearch(Builder $query, $request, array $columns): Builder
+    public function scopeSearch($query, $request, array $columns)
     {
         if ($request->filled('search')) {
             $query->where(function ($q) use ($request, $columns) {
@@ -79,7 +56,5 @@ class User extends Authenticatable
                 }
             });
         }
-
-        return $query;
     }
 }

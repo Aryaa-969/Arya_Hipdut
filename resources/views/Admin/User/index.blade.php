@@ -23,60 +23,63 @@
 
             <div class="card">
                 <div class="card-body">
+
+                    {{-- FILTERS & SEARCH --}}
+                    <form method="GET" action="{{ route('users.index') }}" class="mb-3">
+                        <div class="row">
+
+                            {{-- FILTER VERIFIED --}}
+                            <div class="col-md-2 mb-2">
+                                <select name="email_verified_at" class="form-select" onchange="this.form.submit()">
+                                    <option value="">All</option>
+                                    <option value="yes" {{ request('email_verified_at') == 'yes' ? 'selected' : '' }}>
+                                        Verified
+                                    </option>
+                                    <option value="no" {{ request('email_verified_at') == 'no' ? 'selected' : '' }}>
+                                        Not Verified
+                                    </option>
+                                </select>
+                            </div>
+
+                            {{-- SEARCH --}}
+                            <div class="col-md-4 mb-2">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control"
+                                        value="{{ request('search') }}" placeholder="Search name, email or phone">
+
+                                    <button type="submit" class="input-group-text">
+                                        <svg class="icon icon-xxs" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                    </button>
+
+                                    @if (request('search'))
+                                        <a href="{{ route('users.index') }}" class="btn btn-outline-secondary ms-2">
+                                            Clear
+                                        </a>
+                                    @endif
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+
+                    {{-- TABLE --}}
                     @if ($dataUser->count())
                         <div class="table-responsive">
                             <table class="table table-striped">
-                                <form method="GET" action="{{ route('users.index') }}" class="mb-3">
-                                    <div class="row">
-
-                                        <!-- FILTER VERIFIED -->
-                                        <div class="col-md-2">
-                                            <select name="email_verified_at" class="form-select"
-                                                onchange="this.form.submit()">
-                                                <option value="">All</option>
-                                                <option value="yes"
-                                                    {{ request('email_verified_at') == 'yes' ? 'selected' : '' }}>
-                                                    Verified
-                                                </option>
-                                                <option value="no"
-                                                    {{ request('email_verified_at') == 'no' ? 'selected' : '' }}>
-                                                    Not Verified
-                                                </option>
-                                            </select>
-                                        </div>
-
-                                        <!-- SEARCH INPUT -->
-                                        <div class="col-md-3">
-                                            <div class="input-group">
-                                                <input type="text" name="search" class="form-control"
-                                                    value="{{ request('search') }}" placeholder="Search name or email">
-
-                                                <button type="submit" class="input-group-text">
-                                                    <svg class="icon icon-xxs" fill="currentColor" viewBox="0 0 20 20"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path fill-rule="evenodd"
-                                                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                                            clip-rule="evenodd"></path>
-                                                    </svg>
-                                                </button>
-
-                                                @if (request('search'))
-                                                    <a href="{{ request()->fullUrlWithQuery(['search' => null]) }}"
-                                                        class="btn btn-outline-secondary ml-3" id="clear-search">
-                                                        Clear
-                                                    </a>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </form>
-
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Foto</th>
                                         <th>Nama</th>
                                         <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Verified</th>
                                         <th>Dibuat</th>
                                         <th>Aksi</th>
                                     </tr>
@@ -86,35 +89,75 @@
                                         <tr>
                                             <td>{{ $loop->iteration + ($dataUser->currentPage() - 1) * $dataUser->perPage() }}
                                             </td>
+
+                                            {{-- FOTO --}}
+                                            <td>
+                                                @if ($user->profile_picture)
+                                                    <img src="{{ Storage::url($user->profile_picture) }}" width="40"
+                                                        height="40" style="border-radius: 50%; object-fit: cover;">
+                                                @else
+                                                    <span class="text-muted">-</span>
+                                                @endif
+                                            </td>
+
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
+                                            <td>{{ $user->phone ?? '-' }}</td>
+                                            <td>{{ ucfirst($user->role) }}</td>
+
+                                            {{-- STATUS --}}
+                                            <td>
+                                                @if ($user->status == 'active')
+                                                    <span class="badge bg-success">Active</span>
+                                                @else
+                                                    <span class="badge bg-secondary">Inactive</span>
+                                                @endif
+                                            </td>
+
+                                            {{-- VERIFIED --}}
+                                            <td>
+                                                @if ($user->email_verified_at)
+                                                    <span class="badge bg-primary">Yes</span>
+                                                @else
+                                                    <span class="badge bg-warning text-dark">No</span>
+                                                @endif
+                                            </td>
+
                                             <td>{{ $user->created_at->format('Y-m-d') }}</td>
+
                                             <td>
                                                 <a href="{{ route('users.edit', $user->id) }}"
-                                                    class="btn btn-sm btn-warning">Edit</a>
+                                                    class="btn btn-sm btn-warning">
+                                                    Edit
+                                                </a>
 
                                                 <form action="{{ route('users.destroy', $user->id) }}" method="POST"
                                                     class="d-inline" onsubmit="return confirm('Hapus user ini?');">
+
                                                     @csrf
                                                     @method('DELETE')
+
                                                     <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
                                                 </form>
                                             </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>
-                                <div class="mt-3">
-                                    {{ $dataUser->appends(request()->query())->links('pagination::bootstrap-5') }}
-                                </div>
                             </table>
                         </div>
 
-                        {{ $dataUser->links() }}
+                        {{-- PAGINATION --}}
+                        <div class="mt-3">
+                            {{ $dataUser->appends(request()->query())->links('pagination::bootstrap-5') }}
+                        </div>
                     @else
                         <p class="mb-0">Belum ada user.</p>
                     @endif
+
                 </div>
             </div>
+
         </div>
     </main>
     <!-- End -->

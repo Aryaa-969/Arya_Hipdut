@@ -484,6 +484,7 @@
                         </ul>
                     </div>
                 @endif
+
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
                         <form action="{{ route('users.store') }}" method="POST">
@@ -511,6 +512,17 @@
                                 <input type="password" name="password_confirmation" class="form-control" required>
                             </div>
 
+                            {{-- Tambahan sesuai migration + controller --}}
+                            <div class="mb-3">
+                                <label class="form-label">Role</label>
+                                <select name="role" class="form-select" required>
+                                    <option value="">Pilih Role</option>
+                                    <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                                    <option value="staff" {{ old('role') == 'staff' ? 'selected' : '' }}>Staff</option>
+                                    <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
+                                </select>
+                            </div>
+
                             <button class="btn btn-dark" type="submit">Simpan</button>
                             <a href="{{ route('users.index') }}" class="btn btn-secondary">Batal</a>
                         </form>
@@ -518,6 +530,7 @@
                 </div>
             </div>
         </div>
+
 
 
         <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">

@@ -481,50 +481,90 @@
                     </ul>
                 </div>
             @endif
+
             <div class="col-12 mb-4">
                 <div class="card border-0 shadow components-section">
                     <div class="card-body">
+
                         <form action="{{ route('users.update', $user->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
+                            {{-- Nama --}}
                             <div class="mb-3">
                                 <label class="form-label">Nama</label>
                                 <input type="text" name="name" value="{{ old('name', $user->name) }}"
                                     class="form-control" required>
                             </div>
 
+                            {{-- Email --}}
                             <div class="mb-3">
                                 <label class="form-label">Email</label>
                                 <input type="email" name="email" value="{{ old('email', $user->email) }}"
                                     class="form-control" required>
                             </div>
 
+                            {{-- Phone --}}
                             <div class="mb-3">
-                                <label class="form-label">Password (wajib diisi)</label>
-                                <input type="password" name="password" class="form-control" required>
+                                <label class="form-label">Nomor HP</label>
+                                <input type="text" name="phone" value="{{ old('phone', $user->phone) }}"
+                                    class="form-control">
                             </div>
 
+                            {{-- Address --}}
+                            <div class="mb-3">
+                                <label class="form-label">Alamat</label>
+                                <textarea name="address" class="form-control" rows="3">{{ old('address', $user->address) }}</textarea>
+                            </div>
+
+                            {{-- Role --}}
+                            <div class="mb-3">
+                                <label class="form-label">Role</label>
+                                <select name="role" class="form-control" required>
+                                    <option value="admin"
+                                        {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin</option>
+                                    <option value="user" {{ old('role', $user->role) == 'user' ? 'selected' : '' }}>
+                                        User</option>
+                                </select>
+                            </div>
+
+                            {{-- Status --}}
+                            <div class="mb-3">
+                                <label class="form-label">Status</label>
+                                <select name="status" class="form-control" required>
+                                    <option value="active"
+                                        {{ old('status', $user->status) == 'active' ? 'selected' : '' }}>Aktif</option>
+                                    <option value="inactive"
+                                        {{ old('status', $user->status) == 'inactive' ? 'selected' : '' }}>Tidak Aktif
+                                    </option>
+                                </select>
+                            </div>
+
+                            {{-- Password --}}
+                            <div class="mb-3">
+                                <label class="form-label">Password (opsional)</label>
+                                <input type="password" name="password" class="form-control">
+                                <small class="text-muted">Kosongkan jika tidak ingin mengubah password.</small>
+                            </div>
+
+                            {{-- Konfirmasi Password --}}
                             <div class="mb-3">
                                 <label class="form-label">Konfirmasi Password</label>
-                                <input type="password" name="password_confirmation" class="form-control" required>
+                                <input type="password" name="password_confirmation" class="form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="">Foto Profile</label>
-                                <input type="file" name="profile_picture" class="form-control">
-                            </div>
-
-
-
+                            {{-- Foto Profile --}}
                             <button class="btn btn-dark" type="submit">Update</button>
                             <a href="{{ route('users.index') }}" class="btn btn-secondary">Batal</a>
+
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
+
 
 
         <div class="card theme-settings bg-gray-800 theme-settings-expand" id="theme-settings-expand">
